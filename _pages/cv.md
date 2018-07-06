@@ -1,5 +1,5 @@
 ---
-layout: cv
+layout: single
 permalink: /cv/
 title: My CV
 tags: [about]
