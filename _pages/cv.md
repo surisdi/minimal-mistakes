@@ -6,4 +6,4 @@ modified: 7-7-2018
 comments: false
 ---
 
-You can also download my <a href="https://drive.google.com/open?id=10eIVfKUfMPw8tCEuS0DevCTzFPuk-bp2" target="_blank">CV in PDF</a>.
+You can also download my <a href="https://docs.google.com/uc?export=download&id=10eIVfKUfMPw8tCEuS0DevCTzFPuk-bp2" target="_blank">CV in PDF</a>.
