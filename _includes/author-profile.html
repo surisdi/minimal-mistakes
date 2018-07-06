@@ -225,6 +225,14 @@
         </li>
       {% endif %}
 
+      {% if author.scholar %}
+        <li>
+          <a href="https://scholar.google.com/citations?user={{ author.scholar }}" itemprop="sameAs">
+            <i class="fab fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar
+          </a>
+        </li>
+      {% endif %}
+
       {% if author.weibo %}
         <li>
           <a href="https://www.weibo.com/{{ author.weibo }}" itemprop="sameAs">

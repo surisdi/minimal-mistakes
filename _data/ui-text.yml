@@ -1075,6 +1075,50 @@ hu: &DEFAULT_HU
 hu-HU:
   <<: *DEFAULT_HU
 
+# Catalan
+# -------
+cat: &DEFAULT_CA
+  page                       : "Pàgina"
+  pagination_previous        : "Anterior"
+  pagination_next            : "Següent"
+  breadcrumb_home_label      : "Inici"
+  breadcrumb_separator       : "/"
+  menu_label                 :
+  toc_label                  : "Continguts"
+  ext_link_label             : "Enllaç"
+  less_than                  : "menys de"
+  minute_read                : "minut de lectura"
+  share_on_label             : "Compartir"
+  meta_label                 :
+  tags_label                 : "Etiquetes:"
+  categories_label           : "Categories:"
+  date_label                 : "Actualitzat:"
+  comments_label             : "Comentar"
+  comments_title             :
+  more_label                 : "Veure més"
+  related_label              : "També podries veure"
+  follow_label               : "Seguir:"
+  feed_label                 : "Feed"
+  powered_by                 : "Powered by"
+  website_label              : "Lloc web"
+  email_label                : "Email"
+  recent_posts               : "Entrades recents"
+  undefined_wpm              : "Paràmetre words_per_minute (Paraules per minut) no definido en _config.yml"
+  comment_form_info          : "La seva direcció de correu electrònic no serà publicada. S'han ressaltat els camps requerits"
+  comment_form_comment_label : "Comentari"
+  comment_form_md_info       : "Markdown està suportat."
+  comment_form_name_label    : "Nom"
+  comment_form_email_label   : "Adreça de E-mail"
+  comment_form_website_label : "Lloc web (opcional)"
+  comment_btn_submit         : "Enviar Commentari"
+  comment_btn_submitted      : "Enviat"
+  comment_success_msg        : "Gràcies pel seu comentari!, es podrà veure en el lloc web un cop hagi estat aprovat"
+  comment_error_msg          : "Ens sap greu, hi ha hagut un error en enviar el comentari. Siusplau miri que tots els camps requerits han estat omplerts i provi-ho de nou."
+  loading_label              : "Carregant..."
+ca-CA:
+  <<: *DEFAULT_CA
+
+
 # Another locale
 # --------------
 #

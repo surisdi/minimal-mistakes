@@ -16,12 +16,12 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Didac Suris's Page"
+title                    : "Dídac Surís's Page"
 title_separator          : "-"
-name                     : "Didac Suris"
-description              : "An amazing website."
+name                     : "Dídac Surís"
+description              : "Computer vision researcher. Currently visiting student at MIT-CSAIL"
 url                      : "surisdi.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+baseurl                  : '/blog' # the subpath of your site, e.g. "/blog"
 repository               : "surisdi/surisdi.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
@@ -103,7 +103,7 @@ author:
   name             : "Didac Suris"
   avatar           : "/assets/images/bio-photo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an amazing person."
-  location         : "Somewhere"
+  location         : # "Somewhere"
   email            : "didac.suris@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
@@ -115,7 +115,7 @@ author:
   foursquare       :
   github           : "surisdi"
   gitlab           :
-  google_scholar   : "6tOiGLAAAAAJ"
+  scholar          : "6tOiGLAAAAAJ"
   google_plus      :
   keybase          :
   instagram        : "surisdi"
