@@ -4,6 +4,7 @@ permalink: /leisure/
 title: Leisure
 modified: 7-7-2018
 comments: false
+author_profile: true
 ---
 
 ## Classical guitar
