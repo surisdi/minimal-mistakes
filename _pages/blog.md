@@ -3,6 +3,6 @@ layout: posts
 permalink: /blog/
 title: All Posts
 tagline: A List of Posts
-tags: [blog]
+tags:
 comments: false
 ---

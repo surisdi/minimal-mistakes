@@ -2,7 +2,6 @@
 layout: single
 permalink: /cv/
 title: My CV
-tags: [about]
 modified: 7-7-2018
 comments: false
 ---
