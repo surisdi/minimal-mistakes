@@ -18,8 +18,8 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 locale                   : "en-US"
 title                    : "Dídac Surís's Page"
 title_separator          : "-"
-name                     : "Dídac Surís"
-description              : "Computer vision researcher. Currently visiting student at MIT-CSAIL"
+name                     : "Dídac Surís Coll-Vinent"
+description              : "Computer vision researcher. Currently visiting student at MIT-CSAIL."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "surisdi/surisdi.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -100,9 +100,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Didac Suris"
+  name             : "Dídac Surís Coll-Vinent"
   avatar           : "/assets/images/bio-photo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "Computer vision researcher. Currently visiting student at MIT-CSAIL."
   location         : # "Somewhere"
   email            : "didac.suris@gmail.com"
   uri              :
