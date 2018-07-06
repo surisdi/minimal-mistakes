@@ -4,6 +4,7 @@ main:
     url: /cv/
   - title: "Blog"
     url: /blog/
+    description: 'Some random notes'
   - title: "Publications"
     url: /publications/
   - title: "Leisure"
