@@ -45,7 +45,7 @@
       {% include sidebar.html %}
       <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
         <nav class="toc">
-          <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label }}</h4></header>
+          <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i></h4></header>
         </nav>
       </aside>
       {% if page.header.show_overlay_excerpt != false and page.excerpt %}
