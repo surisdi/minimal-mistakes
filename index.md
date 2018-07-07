@@ -7,4 +7,4 @@ header:
   caption: © Didac Suris
 ---
 
-<p align="center">I am a computer vision researcher at [CSAIL-MIT](https://www.csail.mit.edu/), working in Professor Antonio Torralba's lab.</p>
+<p align="center">I am a computer vision researcher at <a href="https://www.csail.mit.edu/">CSAIL-MIT</a>, working in Professor Antonio Torralba's lab.</p>
