@@ -5,13 +5,13 @@ author_profile: true
 header:
   overlay_image: /assets/images/corbmari_difuminat.png
   caption: © Didac Suris
-excerpt: Welcome
+intro: 
+  - excerpt: 'I am a computer vision researcher at [CSAIL-MIT](https://www.csail.mit.edu/), working in Professor Antonio Torralba's lab.'
 ---
 
-## About Me
+{% include feature_row id="intro" type="center" %}
 
-I am a computer vision researcher at [CSAIL-MIT](https://www.csail.mit.edu/), working in Professor Antonio Torralba's 
-lab. 
+
 
 [//]: # (TODO: Posar les meves referencies, no les del pont tusset)
 [//]: # (TODO: Lletra de referencies mes petita)
