@@ -1,7 +1,8 @@
 ---
 title: "Welcome to my page"
-layout: splash
+layout: splash_sidebar
 author_profile: true
+sidebar: false
 header:
   overlay_image: /assets/images/corbmari.jpg
   caption: © Didac Suris
