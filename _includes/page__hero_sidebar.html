@@ -44,9 +44,6 @@
       </h1>
       {% include sidebar.html %}
       <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-        <nav class="toc">
-          <header><h4 class="nav__title"></h4></header>
-        </nav>
       </aside>
       {% if page.header.show_overlay_excerpt != false and page.excerpt %}
         <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
