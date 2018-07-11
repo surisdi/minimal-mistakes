@@ -41,8 +41,26 @@ $(document).ready(function() {
 
   stickySideBar();
 
+    // Sticky sidebar
+  var stickySideBar2 = function() {
+    var show =
+      $(".author__urls-wrapper button").length === 0
+        ? $(window).width() > 128 // width should match $large Sass variable
+        : !$(".author__urls-wrapper button").is(":visible");
+    if (show) {
+      // fix
+      $(".sidebar").addClass("sticky2");
+    } else {
+      // unfix
+      $(".sidebar").removeClass("sticky2");
+    }
+  };
+
+  stickySideBar2();
+
   $(window).resize(function() {
     stickySideBar();
+    stickySideBar2();
   });
 
   // Follow menu drop down
