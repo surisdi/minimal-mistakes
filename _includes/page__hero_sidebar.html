@@ -43,9 +43,11 @@
         {% endif %}
       </h1>
       <!-- {% include sidebar.html %} -->
-      {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
       {% if page.header.show_overlay_excerpt != false and page.excerpt %}
-        <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        <p class="page__lead">{
+          { page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }
+          {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+        }</p>
       {% endif %}
       {% if site.read_time and page.read_time %}
         <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
