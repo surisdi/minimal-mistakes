@@ -51,6 +51,18 @@
         {% assign author_src = author.avatar | relative_url %}
       {% endif %}
       <img src="{{ author_src }}" alt="{{ author.name }}" itemprop="image">
+      <div class="author__content">
+        {% if author.home %}
+          <a href="{{ author_link }}"><h3 class="author__name" itemprop="name">{{ author.name }}</h3></a>
+        {% else %}
+          <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
+        {% endif %}
+        {% if author.bio %}
+          <p class="author__bio" itemprop="description">
+            {{ author.bio }}
+          </p>
+        {% endif %}
+      </div>
       <!-- {% include sidebar.html %} -->
       {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
       {% if page.header.show_overlay_excerpt != false and page.excerpt %}
