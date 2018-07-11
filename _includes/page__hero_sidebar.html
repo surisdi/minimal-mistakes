@@ -30,6 +30,9 @@
 
 {% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
 
+{% assign author = page.author | default: page.authors[0] | default: site.author %}
+{% assign author = site.data.authors[author] | default: author %}
+
 <div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
   style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}), {% endif %}url('{{ overlay_img_path }}');{% endif %}"
 >
@@ -42,12 +45,16 @@
           {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
         {% endif %}
       </h1>
+            {% if author.avatar contains "://" %}
+        {% assign author_src = author.avatar %}
+      {% else %}
+        {% assign author_src = author.avatar | relative_url %}
+      {% endif %}
+      <img src="{{ author_src }}" alt="{{ author.name }}" itemprop="image">
       <!-- {% include sidebar.html %} -->
+      {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
       {% if page.header.show_overlay_excerpt != false and page.excerpt %}
-        <p class="page__lead">{
-          { page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }
-          {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
-        }</p>
+        <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% endif %}
       {% if site.read_time and page.read_time %}
         <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
