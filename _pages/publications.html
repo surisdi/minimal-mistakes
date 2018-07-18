@@ -15,7 +15,7 @@ author_profile: true
 /* The list of items */
 .biblist { }
 /* The item */
-.biblist li { 
+.biblist li {
   font-size: 75%
 }
 /*************************************
@@ -33,7 +33,7 @@ div.bibtex {
 div.bibtex pre { font-size: 65%; overflow: auto;  width: 100%; padding: 0em 0em;}
 
 .post-container {
-    margin: 20px 20px 10px 10px;  
+    margin: 20px 20px 10px 10px;
     border: 1px solid #333;
     overflow: auto;
     font-size: 75%
@@ -69,17 +69,27 @@ div.bibtex pre { font-size: 65%; overflow: auto;  width: 100%; padding: 0em 0em;
         }
     }
     -->
+      function toggleVideo(articleid) {
+        var vid = document.getElementById('vid_'+articleid);
+        if (vid) {
+            if(vid.className.indexOf('video') != -1) {
+                vid.className.indexOf('noshow') == -1?vid.className = 'video noshow':vid.className = 'video';
+            }
+        } else {
+            return;
+        }
+    }
 </script>
 
 My publications are also listed in my <a href="https://scholar.google.com/citations?user=6tOiGLAAAAAJ">Google Scholar profile</a>.
 
 <div class="post-container">
-  
+
     <div class="post-thumb"><a href="https://arxiv.org/abs/1804.01452">
     <img class="icons" src="https://surisdi.github.io/assets/images/speech_audio2.png"  hspace="30"/></a></div>
     <div class="post-content">
       <p>
-      <a href="http://people.csail.mit.edu/dharwath/" target="_blank">D. Harwath</a>, 
+      <a href="http://people.csail.mit.edu/dharwath/" target="_blank">D. Harwath</a>,
       <a href="http://people.csail.mit.edu/recasens/" target="_blank">A. Recasens</a>,
       D. Surís,
       <a href="https://www.linkedin.com/in/galenchuang/" target="_blank">G. Chuang</a>,
@@ -107,14 +117,17 @@ My publications are also listed in my <a href="https://scholar.google.com/citati
     <img class="icons" src="https://surisdi.github.io/assets/images/hat2.png" hspace="30"/></a></div>
     <div class="post-content">
       <p>
-        <a href="http://www.tid.es/research/researchers/joan-serra" target="_blank">J. Serrà</a>, D. Surís, <a href="http://mariusmiron.com/" target="_blank">M. Miron</a> and <a href="https://alexiskz.wordpress.com/" target="_blank">A. Karatzoglou</a>
+        <a href="http://joanserra.weebly.com" target="_blank">J. Serrà</a>, D. Surís, <a href="http://mariusmiron.com/" target="_blank">M. Miron</a> and <a href="https://alexiskz.wordpress.com/" target="_blank">A. Karatzoglou</a>
         <br><b>Overcoming catastrophic forgetting with hard attention to the task</b><br>
         <i>International Conference on Machine Learning (ICML)</i>, 2018 (long talk).
         <br />
         <a href="javascript:toggleBibtex('Serra2018')">[BibTeX]</a>
         <a href="https://arxiv.org/pdf/1801.01423" target="_blank">[PDF]</a>
         <a href="https://github.com/joansj/hat">[CODE]</a> </p>
+        <a href="javascript:toggleVideo('Serra2018')">[VIDEO PRESENTATION (21:20)]</a>
         <div id="bib_Serra2018" class="bibtex noshow">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ficml.imls%2Fvideos%2F432573817257139%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true" class="video noshow"></iframe>
+
         <pre>
         @Article{Serra2018,
           author = {J. Serr\`a and D. Sur\'is and M. Miron and A. Karatzoglou},
@@ -126,6 +139,34 @@ My publications are also listed in my <a href="https://scholar.google.com/citati
       </div>
  </div>
      </div>
+  <div class="post-container">
+  <div class="post-thumb"><a href="https://arxiv.org/abs/1801.02200">
+    <img class="icons" src="https://surisdi.github.io/assets/images/crossmodal2.png" hspace="30"/></a></div>
+    <div class="post-content">
+      <p>
+        Didac Surís, Amanda Duarte, Amaia Salvador, Jordi Torres, Xavier Giró-i-Nieto
+        D. Surís,
+        <a href="https://imatge.upc.edu/web/people/amanda-duarte" target="_blank">A. Duarte</a> and
+        <a href="https://imatge.upc.edu/web/people/amaia-salvador" target="_blank">A. Salvador</a> and
+        <a href="http://jorditorres.org/" target="_blank">J. Torres</a> and
+        <a href="https://imatge.upc.edu/web/people/xavier-giro" target="_blank">X. Giró-i-Nieto</a>
+        <br><b>Cross-modal Embeddings for Video and Audio Retrieval</b><br>
+        <i>European Conference on Computer Vision Workshops (ECCV Workshops)</i>, 2017.
+        <br />
+        <a href="javascript:toggleBibtex('Suris2018')">[BibTeX]</a>
+        <a href="https://arxiv.org/pdf/1801.02200.pdf" target="_blank">[PDF]</a> </p>
+        <div id="bib_Suris2018" class="bibtex noshow">
+        <pre>
+        @Article{Suris2018,
+          author = {D. Sur\'is and A. Duarte and A. Salvador and J. Torres and X. Gir\'o-i-Nieto},
+          title = {Cross-modal Embeddings for Video and Audio Retrieval},
+          journal = {European Conference on Computer Vision Workshops (ECCV Workshops)},
+          year = {2018}
+        }
+        </pre>
+        </div>
+   </div>
+</div>
   <div class="post-container">
   <div class="post-thumb"><a href="https://ieeexplore.ieee.org/document/7962637/">
     <img class="icons" src="https://surisdi.github.io/assets/images/backhaul2.png" hspace="30"/></a></div>
