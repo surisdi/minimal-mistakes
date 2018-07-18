@@ -16,6 +16,10 @@
   {% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
 {% endif %}
 
+{% if page.header.content contains "://" %}
+  {% capture content_ %}{{ page.header.content }}{% endcapture %}
+{% endif %}
+
 {% if page.header.overlay_filter contains "rgba" %}
   {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
 {% elsif page.header.overlay_filter %}
@@ -62,6 +66,7 @@
   {% if page.header.caption %}
     <span class="page__hero-caption">{{ page.header.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
   {% endif %}
-  Pepito2
 </div>
-Pepito de los palotes Pepito de los palotes Pepito de los palotes Pepito de los palotes Pepito de los palotes Pepito de los palotes
+  <section class="page__content" itemprop="text">
+    {{content_}}
+  </section>
