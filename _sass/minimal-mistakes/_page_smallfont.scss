@@ -20,7 +20,7 @@
   }
 }
 
-.page {
+.page_smallfont {
   @include breakpoint($large) {
     float: right;
     width: calc(100% - #{$right-sidebar-width-narrow});
