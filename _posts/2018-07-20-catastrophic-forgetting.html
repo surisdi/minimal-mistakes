@@ -29,21 +29,18 @@ classes: wide
     into either class A or class B (above or below the line). For example, let's say we want to classify between cats
     and dogs, given two features X and Y (such as height and weight). From the data we have, we can train an algorithm
     that will give us a line such as the yellow one.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_1.png" alt="Initial given data for the first task">
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_2.png" alt="Classifier for the first task">
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/classifier_1.gif" alt="Initial given data for the first task, and its classifier" width="300">
   <p>
     However, when we are presented with a new task, such as the task of classifying between cars and houses, we will
     need to change the parameters of our line (move the line), as shown in the following images:
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_3.png" alt="The previous parameters no longer work">
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_4.png" alt="We have to change the parameters">
-
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/classifier_2.gif" alt="The previous parameters no longer work" width="300">
   <p>
     The new line will no longer fit the initial data, it will no longer classify correctly between cats and dogs, so it
     will have forgotten the first task. This is what is called catastrophic forgetting.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_5.png" alt="Catastrophic forgetting of the first task occurs">
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_5.png" alt="Catastrophic forgetting of the first task occurs" width="300">
   <p>
     This may not be a problem for a simple system like the previous one, because if we want to remember the initial
     line, we just need to save two parameters. However, in more complex systems where we want the different tasks to
@@ -89,8 +86,8 @@ classes: wide
     is to use the id of the task to mask the activations of the units according to a mask, where each task has its own
     mask. The amount of parameters needed for the mask is negligible compared to the total size of the network. This
     mask is just a multiplicative term to the units, as the following GIF shows.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_network_gif.gif" alt="Evolution of the masks">
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/network.gif" alt="Evolution of the masks" width="300">
   <p>
     The GIF shows the following process: when training task 0 (pink), with an initial empty mask, we also compute what
     units of the system are really important for that task, and we fix them. Then, when training for a second (yellow
@@ -101,8 +98,8 @@ classes: wide
   <p>
     The training of the system is represented in the following figure, where we can see that the mask and id embeddings
     are just an extra branch trained together with the original network.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_blockdiag-1.png" alt="Classifier for the first task">
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_blockdiag-1.png" alt="Classifier for the first task" width="300">
   <p>
     Two hyperparameters that control the system. <i>Smax</i> is the amount of closure of the sigmoid gate, which means
     that it controls the amount of forgetting of old tasks to make room for the new ones. <i>c</i> is the amount of
@@ -120,18 +117,22 @@ classes: wide
     The results of our method are very promising, and actually beat the state of the art. The details for the following
     graph are in the paper, but basically it shows the amount of forgetting each method has, where the closer to 0
     (which represents the joint training baseline), the better.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_mixture-1.png" alt="Classifier for the first task">
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_mixture.png" alt="Classifier for the first task" width="300">
   <p>
     Also, the method works pretty well for network compression (as a nice secondary effect). As we train the network to
     compress the information representing each task (controlled by the hyperparameter c), what it does during training
     is first learning how to do the task, and then compressing the learned information into a few parameters. The
     evolution of the accuracy and the capacity occupied by each task during training is shown in the following graph.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression-1.png" alt="Classifier for the first task">
   </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression-1.png" alt="Classifier for the first task" width="300">
   <p>
     So this is it! If you have any questions, please don't hesitate to send an email to any of the authors, and we will
     gladly try to answer.
+  </p>
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression-1.png" alt="Classifier for the first task" width="300">
+  <p>
+    Finally, as promised, here is the video of Joan's talk (min. 21):
   </p>
 </div>
 
