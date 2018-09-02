@@ -101,7 +101,7 @@ classes: wide
   <p>
     The training of the system is represented in the following figure, where we can see that the mask and id embeddings
     are just an extra branch trained together with the original network.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_blockdiag.pdf" alt="Classifier for the first task">
+    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_blockdiag-1.png" alt="Classifier for the first task">
   </p>
   <p>
     Two hyperparameters that control the system. <i>Smax</i> is the amount of closure of the sigmoid gate, which means
@@ -120,14 +120,14 @@ classes: wide
     The results of our method are very promising, and actually beat the state of the art. The details for the following
     graph are in the paper, but basically it shows the amount of forgetting each method has, where the closer to 0
     (which represents the joint training baseline), the better.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_mixture.pdf" alt="Classifier for the first task">
+    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_mixture-1.png" alt="Classifier for the first task">
   </p>
   <p>
     Also, the method works pretty well for network compression (as a nice secondary effect). As we train the network to
     compress the information representing each task (controlled by the hyperparameter c), what it does during training
     is first learning how to do the task, and then compressing the learned information into a few parameters. The
     evolution of the accuracy and the capacity occupied by each task during training is shown in the following graph.
-    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression.pdf" alt="Classifier for the first task">
+    <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression-1.png" alt="Classifier for the first task">
   </p>
   <p>
     So this is it! If you have any questions, please don't hesitate to send an email to any of the authors, and we will
