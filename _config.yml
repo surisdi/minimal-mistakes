@@ -12,14 +12,14 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air_custom" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise", "default"
+minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise", "default", "air_custom"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "Dídac Surís's Page"
 title_separator          : "-"
 name                     : "Dídac Surís Coll-Vinent"
-description              : "Computer vision researcher.<br/>Currently visiting student at MIT-CSAIL."
+description              : "Computer vision researcher.<br/>Currently at Vector Institute."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "surisdi/surisdi.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "Dídac Surís Coll-Vinent"
   avatar           : "/assets/images/bio-photo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Computer vision researcher.<br/>Currently visiting student at MIT-CSAIL."
+  bio              : "Computer vision researcher.<br/>Currently at Vector Institute."
   location         : # "Somewhere"
   email            : "didac.suris@gmail.com"
   uri              :
@@ -113,7 +113,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "surisdi"
+  github           : # "surisdi"
   gitlab           :
   scholar          : # "6tOiGLAAAAAJ"
   google_plus      :

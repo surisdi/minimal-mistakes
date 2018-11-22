@@ -4,9 +4,8 @@ layout: splash_sidebar
 author_profile: true
 sidebar: false
 header:
-  content: <p align="center">I am a computer vision researcher at <a href="https://www.csail.mit.edu/">MIT-CSAIL</a>, working in Professor Antonio Torralba's lab.</p>
+  content: <p align="center">I am a computer vision researcher at <a href="https://vectorinstitute.ai/">Vector Institute</a>, working in Professor Sanja Fidler's lab.</p>
   overlay_image: /assets/images/corbmari.jpg
   caption: © Didac Suris
-excerpt: "This page is still under construction"
 ---
 
