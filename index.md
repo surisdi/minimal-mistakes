@@ -1,5 +1,5 @@
 ---
-title: "Welcome to my page"
+title: "\n\n\n"
 layout: single
 author_profile: true
 sidebar: false
