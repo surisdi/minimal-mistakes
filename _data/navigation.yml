@@ -1,11 +1,11 @@
 # main links
 main:
-  - title: "CURRICULUM"
+  - title: "Curriculum"
     url: /cv/
-  - title: "BLOG"
+  - title: "Blog"
     url: /blog/
     description: 'Some random notes'
-  - title: "PUBLICATIONS"
+  - title: "Publications"
     url: /publications/
-  - title: "LEISURE"
+  - title: "Leisure"
     url: /leisure/
