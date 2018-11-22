@@ -1,14 +1,4 @@
 ---
-title: "ei 
-
-
-
-
-
-
-
-
-hola"
 layout: single
 author_profile: true
 sidebar: false
