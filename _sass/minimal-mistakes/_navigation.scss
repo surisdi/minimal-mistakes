@@ -471,7 +471,7 @@
   font-family: $sans-serif-narrow;
   font-size: $type-size-5;
   font-weight: bolder;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .nav__sub-title {
@@ -481,7 +481,7 @@
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: capitalize;
   border-bottom: 1px solid $border-color;
 }
 
