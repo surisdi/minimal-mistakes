@@ -3,7 +3,7 @@ layout: single
 author_profile: true
 sidebar: false
 header:
-  overlay_image: /assets/images/corbmari.jpg
+  overlay_image: /assets/images/corbmari_reduced.jpg
   caption: © Didac Suris
 ---
 <h1>About me</h1>
