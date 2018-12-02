@@ -1,0 +1,199 @@
+---
+title: "How do we know a neural network has learned a concept? What does it mean to learn a concept?"
+comments: true
+<!--classes: wide-->
+---
+
+<style type="text/css">
+
+  iframe {
+    max-width: 100%;
+  }
+
+</style>
+
+<div class="tip">
+  <p>
+
+  This post can be motivated with the story of Alex the parrot. Alex was a very intelligent parrot that was able to
+  learn basic concepts the same way baby humans do. He knew how to differentiate colors, shapes, sizes and materials,
+  and knew how to answer questions about these attributes. For our purposes, however, the most interesting aspect of Alex
+  was not how he learned all these things, but how his knowledge was evaluated. In this sense, we can think of Alex as a
+  black box, which receives inputs in form of objects and questions, and provides answers. Under this framework, we can
+  evaluate a neural network the same way we evaluate Alex.
+
+  In order to evaluate the learning of concepts, first we have to understand what a concept is. Psychologists
+  distinguish between two categories of concepts or abilities related to the knowledge of concepts, depending on their
+    level of abstraction. As Pepperberg puts it in <i>The Alex Studies</i> [p. 52] about the parrot Alex:
+
+  </p>
+  <p style="margin-left:2em; margin-right:2em; font-size:80%; font-style:italic">
+
+  I needed to determine if [Alex] could respond not only to specific properties or patterns of stimuli, like
+  pigeons who respond to positive instances of "tree", but also to classes or categories to which these specific
+  properties or patterns belong. Could he, for example, go beyond recognizing what is or is not ``green'' to recognize
+  the nature of the \textit{relationship} between a green pen and a blade of grass? In parlance of psychologists, the
+  former ability (recognizing "greenness") is called <b>stimulus generalization</b>; the latter (recognizing the
+    category "color") is called <b>categorical class formation</b>. The differences between these abilities are both
+  subtle and important [...]. The extent to which most animals form categorical classes as defined above is as yet
+  unknown.
+  </p>
+  <p>
+
+  Separating these two kind of concepts can be important, as categorical class formation requires a superior level of
+    abstraction. However, in the following I will focus on the stimulus generalization, as it is already a challenge in itself.
+
+  Nonetheless, even simplifying to stimulus generalization, the question "how can we know a concept has been learned?"
+  is a very broad one. And it applies not only to machine learning algorithms or artificial intelligent agents, but also
+  to humans and animals, like the case we just explained of Alex the parrot. In his case, the only way to evaluate if he
+  knew certain concepts was for him to correctly complete tasks that required the knowledge of those concepts.
+
+  Similarly, we need a general way of measuring knowledge that does not depend on the specific configuration of the
+  output features (which would be like studying the activations of the parrot's brain), since finding some meaningful
+  explanation in the feature space would be a sufficient condition to prove some knowledge, but not a necessary one.
+  Also, it would be very difficult to compare different methods. Thus, we have to evaluate how the networks solve some
+  basic tasks, like Alex did.
+
+  \subsection{The Dataset}
+  To work with this problem, we resort to a simpler and more controlled dataset, the CLEVR dataset
+  \cite{Johnson2017CLEVRAD}, that has a strong relation to Alex the parrot, as the attributes learned are exactly the
+  same (color, material, shape and size). CLEVR is a synthetic dataset, meaning that its images are rendered and not
+  natural, and thus we can create extensions of this dataset artificially.
+
+  To understand the properties we want our dataset to have, we can use an analogy with another famous animal, Clever
+  Hans, a horse \cite{clevr_hans}. Clever Hans seemingly understood the meaning of numbers, so when he was told a number
+  by its owner, he tapped the floor that number of times (and was also capable of performing other similar tasks).
+  However, what he was learning was to react to his owner's body tension, and thus, he was giving the right answer for
+  the wrong reasons: he didn't know the actual concepts.
+
+  Neural networks can have a similar behaviour. They can learn concepts for a certain distribution (even generalizing
+  correctly to unseen samples), but failing when the distribution changes, even when the concepts are the same. Because
+  they do not really know the concept, they just learn to generate some useful "tailored-to-a-distribution" features
+  (and they are very good at it).
+
+  To test this behaviour, we create a new version of CLEVR, in which we add more
+  possibilities to the already defined attributes.
+
+  \subsection{The Test}
+  \label{subsec:test}
+  As we said, we do not want to rely on the specific feature representation to evaluate what the network learned, so we
+  devise a simple but very general way of evaluating whether individual concepts have been learned: we have a test
+  dataset (not seen during training) with original images, a description of these images, and hard semantic negatives,
+  which are images in which only a single attribute of a single object changes. Then, the network has to match the
+  caption to the correct image, with 50\% chance. While this may seem a very simple test, baseline models completely
+  fail at it, specially when testing with a modified distribution (testset-Different). Also, this test does not depend
+  neither on the task, nor on the loss function, nor on the architecture, as it just uses the output of the network, and
+  this allows us to compare very different models that would otherwise be impossible to compare (with this test we can
+  even compare our models to Alex the parrot, or to a baby human). An example of a test question can be found in
+  Table~\ref{table:clevrd1}.
+
+  We would like the network to do well in two different aspects:
+  \begin{enumerate}
+  \item Criteria 1: Performance in the evaluations, for both testset-Same and testset-different.
+  \item Criteria 2: Gap between testset-same and testset-Different.
+  \end{enumerate}
+  If a method increases the performance of the two test sets from, say, 65\% and 55\% to 95\% and 60\% respectively,
+  maybe it is better learning the concepts (Criteria 1 \checkmark), but not in a really profound (generalizable) way,
+  because the gap between the two distributions increases a lot (Criteria 2 \cross).
+
+  Note that the same test can be applied in the other direction, having to determine a caption given an image. We indeed
+  ran this variation of the test in some of our experiments. However, as the conclusions are very similar and we are
+  mostly interested in learning the visual content, we will focus on the original version of the test (determining the
+  right image given a caption) in the rest of the project.
+
+  \section{Datasets}
+  \label{sec:datasets}
+
+  In this section we will explain the different created datasets, the reason why we had to modify the initial dataset
+  and why we had to create different versions until we got the final one, and how we created them. It is important to
+  keep in mind that the main goal of this chapter is to create a framework to study how different algorithms learn
+  concepts, and that a very important part of the framework is the datasets we use to do the evaluation.
+
+  This section has a subsection for each one of the different created datasets, where both the dataset and the reason to
+  create it are explained. The successive datasets are an evolution of the previous dataset, where a problem is detected
+  and corrected. This section shows that having a balanced dataset to test the concepts is very important to understand
+  the results.
+
+  Each dataset consists of image-caption pairs, where the generated caption is both text and audio (the words are the
+  same). For the training of the system, we mainly use text to simplify the training and iterate faster, but using audio
+  is also completely feasible, as shown in the previous \autoref{chapter:starting_point}, and in some videos in the
+  supplemental materials. As seen in the following sections, different captions can be created for the same image,
+  changing the level of detail or complexity. We only say a new dataset has been created when the image content changes.
+  When the captions content changes, we just say a new version of the same dataset has been created.
+
+  The original CLEVR dataset is a \ac{VQA} dataset. A \ac{VQA} task consists in answering a question about an image, so
+  the system has to understand the question, understand the content of the image, and reason about it. CLEVR images
+  contain several objects where the shape, color, size and material of the object changes. All the possibilities for
+  these attributes are detailed in Table~\ref{table:clevr}. In Figure~\ref{fig:example_clevr} there is an example of a
+  CLEVR image.
+
+  Questions in CLEVR test various aspects of visual reasoning including attribute identification, counting, comparison,
+  spatial relationships, and logical operations. A couple of examples of CLEVR questions associated to the image in
+  Figure~\ref{fig:example_clevr} are \textit{Are there an equal number of large things and metal spheres?} or
+  \textit{What size is the cylinder that is left of the brown metal thing that is left of the big sphere?}.
+
+  The original CLEVR dataset provides scene information, with all the attributes of the objects, so we use this
+  information to generate text and audio captions. The generated captions contain all the attributes, as well as the
+  relationship between pairs of objects. Then, a possible caption for the image in Figure~\ref{fig:example_clevr} would
+  be: \textit{There is a big shiny ball to the right of a blue cube. There is also a small red rubber sphere to the
+  front of a brown cylinder. There is a cyan block. There is a green small metal cylinder to the right of a large metal
+  block. There is a rubber cylinder to the right of a small ball}.
+
+  Notice that there are different variations one can choose to add to the caption, making the association with the image
+  more complicated, or adding more concepts.
+
+  Once we have the dataset consisting of image-caption pairs, we can already train a system the same way as in
+  \autoref{chapter:starting_point}.
+
+  The CLEVR dataset has some limitations. The first one is that the generated images do not contain pairs with
+  \textit{hard semantic negatives}. As a reminder, a hard semantic negative is an image that is identical to the
+  original (or \textit{positive}) but with one attribute changed. This allows us to perform the test of asking the
+  system what image is closer to the original caption, and thus detecting if the system is able to understand individual
+  attributes or not. We render new images
+
+    the new dataset should have different distributions for train and test, so that all
+  the properties appear in both distributions, but not the combinations. This way, green cubes appear in train but not
+  in test, and red cubes appear in test but not in train. In order to do well on the red cubes, then, the system can not
+  rely on learning what a red-cube is, but instead it has to learn what "red" is and what "cube" is, separately.
+
+  Complete symmetry between test and train datasets (number of attributes, number of times they appear, number o ftimes
+    the combinations of differents attributes appear...), to compare them fairly.
+
+a complete symmetry between the two distributions (the details in
+
+there has to be no bias towards any attribute in the
+  stimulus generalization level (\textit{yellow} is not more common than \textit{blue}, for example), neither in the
+    categorical class formation level: colors and the other attributes do not have the same importance.
+It has to be equally constructive learing to recognize color than shape.
+
+  \section{Our Approach: Edited Examples}
+
+  In the current formulation of the problem, the system needs to learn how to match a speech or text caption to an
+  image. In order to do so, it has to extract from the audio information that matches the information extracted from the
+  image. However, in most cases, not all the information is needed, at least not in detail. For example, in order to
+  decide if an audio corresponds to an image A or an image B, if in the image A there is a blue object and in the image
+  B not, and the audio caption talks about a blue object, we can decide that the correct image is image A, without even
+  listening to the rest of the audio, or without looking at the rest of the image.
+
+  Similar but more complex situations can occur, where it is not necessary to look at the details of the inputs in order
+  to learn how to associate audio and image. This is not a problem when learning objects, as we saw in
+  \autoref{chapter:starting_point} that objects emerge using this configuration, but it can be a problem when learning
+  more fine-grained details such as attributes or relations.
+
+  The solution is asking the network to solve more complex tasks, where paying attention to the details is crucial, and
+  for that end we create hard semantic negatives. A hard semantic negative is an image or audio that is very close to
+  the positive one, but with only a small change, or a change in just one dimension (color, for example), while leaving
+  the rest the same. When having hard semantic negatives, we can add to the original loss the same triplet loss, but
+  using the hard semantic negatives instead of the randomly sampled negatives.
+
+    this is used in the paper we submitted to CVPR, <i>Learning Words by Drawing Images</i>.
+
+
+  As we said before, we cannot rely solely on feature representations and visualizations to assess the learning of a
+  concept (they can be a sufficient but not strictly necessary condition). However, they are very useful to try to
+  understand (``debug'') our system, and thus being able to improve it. In this section we present several
+  visualizations that can help to study how the system is behaving.
+
+  </pre>
+</div>
+

@@ -1,13 +1,19 @@
 ---
 title: "Catastrophic forgetting"
 comments: true
-classes: wide
 ---
 
 <style type="text/css">
 
 iframe {
 max-width: 100%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 </style>
@@ -38,23 +44,24 @@ max-width: 100%;
     and dogs, given two features X and Y (such as height and weight). From the data we have, we can train an algorithm
     that will give us a line such as the yellow one.
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/classifier_1.gif" alt="Initial given data for the first task, and its classifier" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/classifier_1.gif" alt="Initial given data for the first task, and its classifier" width="300" class="center">
   <p>
     However, when we are presented with a new task, such as the task of classifying between cars and houses, we will
     need to change the parameters of our line (move the line), as shown in the following images:
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/classifier_2.gif" alt="The previous parameters no longer work" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/classifier_2.gif" alt="The previous parameters no longer work" width="300" class="center">
   <p>
     The new line will no longer fit the initial data, it will no longer classify correctly between cats and dogs, so it
     will have forgotten the first task. This is what is called catastrophic forgetting.
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_5.png" alt="Catastrophic forgetting of the first task occurs" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_image_5.png" alt="Catastrophic forgetting of the first task occurs" width="300" class="center">
   <p>
     This may not be a problem for a simple system like the previous one, because if we want to remember the initial
     line, we just need to save two parameters. However, in more complex systems where we want the different tasks to
     interact, and the number of parameters is of the order of millions, we cannot just maintain the different tasks
     completely separated. So we need a way of adapting the parameters of the first task so that they can also fit the
-    second task while remembering how to do the first one.
+    second task while remembering how to do the first one. Also, the fact that the two (or more) tasks can be done by
+    the same network allows some information to be shared between the tasks, potentially helping each other.
   </p>
   <h2>Back to neural networks</h2>
   <p>
@@ -96,7 +103,7 @@ max-width: 100%;
     mask. The amount of parameters needed for the mask is negligible compared to the total size of the network. This
     mask is just a multiplicative term to the units, as the following GIF shows.
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/network.gif" alt="Evolution of the masks" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/network.gif" alt="Evolution of the masks" width="300" class="center">
   <p>
     The GIF shows the following process: when training task 0 (pink), with an initial empty mask, we also compute what
     units of the system are really important for that task, and we fix them. Then, when training for a second (yellow
@@ -108,7 +115,7 @@ max-width: 100%;
     The training of the system is represented in the following figure, where we can see that the mask and id embeddings
     are just an extra branch trained together with the original network.
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_blockdiag-1.png" alt="Classifier for the first task" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_blockdiag-1.png" alt="Classifier for the first task" width="300" class="center">
   <p>
     Two hyperparameters that control the system. <i>Smax</i> is the amount of closure of the sigmoid gate, which means
     that it controls the amount of forgetting of old tasks to make room for the new ones. <i>c</i> is the amount of
@@ -127,17 +134,17 @@ max-width: 100%;
     graph are in the paper, but basically it shows the amount of forgetting each method has, where the closer to 0
     (which represents the joint training baseline), the better.
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_mixture.png" alt="Classifier for the first task" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_mixture.png" alt="Classifier for the first task" width="300" class="center">
   <p>
     Also, the method works pretty well for network compression (as a nice secondary effect). As we train the network to
     compress the information representing each task (controlled by the hyperparameter c), what it does during training
     is first learning how to do the task, and then compressing the learned information into a few parameters. The
     evolution of the accuracy and the capacity occupied by each task during training is shown in the following graph.
   </p>
-  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression-1.png" alt="Classifier for the first task" width="300">
+  <img src="http://surisdi.github.io/assets/images/catfor/catfor_fig_compression-1.png" alt="Classifier for the first task" width="300" class="center">
   <p>
-    So this is it! If you have any questions, please don't hesitate to send an email to any of the authors, and we will
-    gladly try to answer.
+    So this is it! If you have any questions, please don't hesitate to send an email to any of the authors, or post a
+    comment below, and we will gladly answer.
   </p>
   <p>
     Finally, as promised, here is the video of Joan's talk (min. 21):
