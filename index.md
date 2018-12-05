@@ -14,7 +14,7 @@ of information to formulate and solve computer vision and artificial intelligenc
 </p>
 <p>
   This website is a very young personal project, in which I will try to explain how I see the computer vision
-  world, and I will progressively fill with information about me, my projects and my interests.
+  world, and that I will progressively fill with information about me, my projects and my interests.
 </p>
 
 <p>
