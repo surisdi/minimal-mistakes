@@ -1,0 +1,104 @@
+---
+title: "How do we know when a concept is learned?"
+comments: true
+<!--classes: wide-->
+---
+
+<style type="text/css">
+
+  iframe {
+    max-width: 100%;
+  }
+
+</style>
+
+<div class="tip">
+  <p>
+    I will motivate this post with the story of Alex the parrot. Alex was a very intelligent parrot that was able to
+    learn basic concepts the same way baby humans do. He knew how to differentiate colors, shapes, sizes and materials,
+    and knew how to answer questions about these attributes. For our purposes, however, the most interesting aspect of Alex
+    was not how he learned all these things, but how his knowledge was evaluated. In this sense, we can think of Alex as a
+    black box, which receives inputs in form of objects and questions, and provides answers. Under this framework, we can
+    evaluate a neural network the same way we evaluate Alex, and answer questions like "how do we know a neural network has
+    learned a concept?" or "what does it even mean to learn a concept?".
+  </p>
+  <p>
+    In order to evaluate the learning of concepts, first we have to understand what a concept is. Psychologists
+    distinguish between two categories of concepts or abilities related to the knowledge of concepts, depending on their
+    level of abstraction. As Pepperberg puts it in <i>The Alex Studies</i> [p. 52] about the parrot Alex:
+  </p>
+  <p style="margin-left:2em; margin-right:2em; font-size:80%; font-style:italic">
+    I needed to determine if [Alex] could respond not only to specific properties or patterns of stimuli, like
+    pigeons who respond to positive instances of "tree", but also to classes or categories to which these specific
+    properties or patterns belong. Could he, for example, go beyond recognizing what is or is not ``green'' to recognize
+    the nature of the \textit{relationship} between a green pen and a blade of grass? In parlance of psychologists, the
+    former ability (recognizing "greenness") is called <b>stimulus generalization</b>; the latter (recognizing the
+    category "color") is called <b>categorical class formation</b>. The differences between these abilities are both
+    subtle and important [...]. The extent to which most animals form categorical classes as defined above is as yet
+    unknown.
+  </p>
+  <p>
+    Separating these two kind of concepts can be important, as categorical class formation requires a superior level of
+    abstraction. However, in the following I will focus on the stimulus generalization, as it is already a challenge in itself.
+  </p>
+  <p>
+    Nonetheless, even simplifying to stimulus generalization, the question "how can we know a concept has been learned?"
+    is a very broad one. And it applies not only to animals or humans, but also to machine learning algorithms or artificial
+    intelligent agents, and thus my interest in it. In the case of Alex the Parrot, the only way to evaluate if he
+    knew certain concepts was for him to correctly complete tasks that required the knowledge of those concepts.
+    Similarly, for neural networks we need a general way of measuring knowledge that does not depend on the specific configuration of the
+    output features (which would be like studying the activations of the parrot's brain), since finding some meaningful
+    explanation in the feature space would be a sufficient condition to prove some knowledge, but not a necessary one.
+    Also, it would be very difficult to compare different methods. Thus, we have to evaluate how the networks solve some
+    basic tasks, like Alex did.
+  </p>
+  <p>
+    To work with this problem, during my Master's thesis I resorted to a simple and controlled dataset, the
+    <a href="https://cs.stanford.edu/people/jcjohns/clevr/"> CLEVR</a>. dataset,
+    that has a strong relation to Alex the parrot, as the attributes learned are exactly the
+    same (color, material, shape and size). CLEVR is a synthetic dataset, meaning that its images are rendered and not
+    natural, and thus we can create extensions of this dataset artificially.
+  </p>
+  <p>
+    To understand the properties we want our dataset to have, we can use an analogy with another famous animal, Clever
+    Hans, a horse. Clever Hans seemingly understood the meaning of numbers, so when he was told a number
+    by its owner, he tapped the floor that number of times (and was also capable of performing other similar tasks).
+    However, what he was learning was to react to his owner's body tension, and thus, he was giving the <b>right answer for
+    the wrong reasons</b>: he didn't know the actual concepts.
+  </p>
+  <p>
+    Neural networks can have a similar behaviour. They can learn concepts for a certain distribution (even generalizing
+    correctly to unseen samples), but failing when the distribution changes, even when the concepts are the same. Because
+    they do not really know the concept, they just learn to generate some useful "tailored-to-a-distribution" features
+    (and they are very good at it).
+  </p>
+  <p>
+    Then, if we want to avoid thinking we learned a concept when we are only giving correct answers for the wrong reasons,
+    we need our dataset to be different during test than during train. Not only different in the sense of having different
+    samples from the same distribution, but in the sense of having samples from different distributions, where the concepts
+    are the same. To test this behaviour, I created a new version of CLEVR, in which I added more
+    possibilities to the already defined attributes, and more importantly, I created train and tests sets with the same
+    attributes, but where the combinations of attributes were different, and thus the distributions during train and during
+    test were different.
+  </p>
+  <p>
+    The specific task I was working on consisted on matching a caption to its corresponding image, so I
+    devised a simple but very general way of evaluating whether individual concepts have been learned: we have a test
+    dataset (not seen during training) with original images, a description of these images, and semantic negatives,
+    which are images in which only a single attribute of a single object changes. Then, the network has to match the
+    caption to the correct image, with 50% chance. While this may seem a very simple test, baseline models completely
+    fail at it, specially when testing with the modified distribution. Also, this test does not depend
+    neither on the task, nor on the loss function, nor on the architecture, as it just uses the output of the network, and
+    this allows us to compare very different models that would otherwise be impossible to compare (with this test we can
+    even compare our models to Alex the parrot, or to a baby human).
+  </p>
+  <p>
+    In my thesis, I explain different properties the dataset has to have in order for the test to be fair, and I
+    also introduced methods to train the network in order to have more and better concepts. But for now, the purpose of
+    this post was simply to introduce the topic of concept learning by machine learning systems,
+    and hopefully pique the reader's curiosity. I didn't enter into detail on any of the ideas, but if you find
+    it interesting, I can direct you to my thesis, or you can leave a comment and I'll be glad to further discuss these
+    ideas.
+  </p>
+</div>
+
