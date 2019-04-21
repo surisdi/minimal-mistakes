@@ -19,6 +19,14 @@ I was previously a visiting student at <a href="https://www.csail.mit.edu">CSAIL
 <a href="http://web.mit.edu/torralba/www/">Professor Antonio Torralba's lab</a>, and I studied both the 
 undergrad and a Master's in telecommunications in the <a href="https://etsetb.upc.edu">ETSETB-UPC</a>, in Barcelona.
 </p>
+
+<p>
+  On September I will start a PhD at Columbia University in New York (or if you prefer, <i>the city that never sleeps</i>,
+  <i>Gotham</i>, <i>the big apple</i>, and a large assortment of
+  <a href=https://en.wikipedia.org/wiki/Nicknames_of_New_York_City">other names</a>), under the
+  supervision of <a href="http://www.cs.columbia.edu/~vondrick/">Professor Carl Vondrick</a>.
+</p>
+
 <p>
   This website is a very young personal project, in which I will try to explain how I see the computer vision
   world, and that I will progressively fill with information about me, my projects and my interests.
