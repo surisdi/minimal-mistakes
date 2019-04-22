@@ -28,6 +28,10 @@ undergrad and a Master's in telecommunications in the <a href="https://etsetb.up
 </p>
 
 <p>
+  In my free time, I like to play the classical guitar. Maybe (probably not) some day I'll upload some recording of me playing.
+</p>
+
+<p>
   This website is a very young personal project, in which I will try to explain how I see the computer vision
   world, and that I will progressively fill with information about me, my projects and my interests.
 </p>
