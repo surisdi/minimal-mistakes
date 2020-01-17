@@ -27,12 +27,12 @@ learns the easy one, which is created by nouns (instead of more complex parts of
 paragraph, and you will see that the main problem was that a regular discriminative model is not able to (because it does 
 not *need* to) discriminate complex concepts.
  
-Someone could say "well, let's force it to learn them". -- How can we *directly* train the discriminative model in a 
+Someone could say "well, let's force it to learn them". How can we *directly* train the discriminative model in a 
 more demanding and complex setting?
 
 Someone else would
 answer "let's just change the framework and work with generative &mdash;instead of discriminative&mdash; models". And 
-we say: "let's do both". In this project we rely on the powerful representations learned by a generative model, a GAN in
+we say: "let's do both".  In this project we rely on the powerful representations learned by a generative model, a GAN in
 this case, to learn a better discriminative model. A trained generator of a GAN already has a very good representation 
 of the world: it has learned to model attributes and objects, as well the relationship between them. However, it does 
 not know anything about language, those concepts are probably mixed together in a non-interpretable way, and this is why 
