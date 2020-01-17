@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name             : "Dídac Surís Coll-Vinent"
-  avatar           : "/assets/images/bio-photo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/BIO-PHOTO.png" # path of avatar image, e.g. "/assets/images/BIO-PHOTO.png"
   bio              : "Computer vision researcher.<br/>Currently at Vector Institute."
   location         : # "Somewhere"
   email            : "didac.suris@gmail.com"
