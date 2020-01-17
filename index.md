@@ -17,11 +17,11 @@ header:
 
 <p>
 I am interested in multimodal 
-machine learning, or how to use different sources of information &mdash like vision, audio and text&mdash to formulate and solve computer vision and 
+machine learning, or how to use different sources of information &mdash;like vision, audio and text&mdash; to formulate and solve computer vision and 
 artificial intelligence problems. My interests also include self-supervised and active learning, and in general all
 the areas of artificial intelligence that involve using all the available information in an intelligent way.
 </p>
-  
+  <p>
   Before moving to New York, I was a researcher at the 
   <a href="https://vectorinstitute.ai/">Vector Institute</a>, working in 
 <a href="https://www.cs.utoronto.ca/~fidler/">Professor Sanja Fidler's lab</a>. I was previously a visiting student at <a href="https://www.csail.mit.edu">CSAIL-MIT</a>, working in 
