@@ -26,7 +26,7 @@ the areas of artificial intelligence that involve using all the available inform
   <a href="https://vectorinstitute.ai/">Vector Institute</a>, working in 
 <a href="https://www.cs.utoronto.ca/~fidler/">Professor Sanja Fidler's lab</a>. I was previously a visiting student at <a href="https://www.csail.mit.edu">CSAIL-MIT</a>, working in 
 <a href="http://web.mit.edu/torralba/www/">Professor Antonio Torralba's lab</a>, and I studied both the 
-undergrad and a Master's in telecommunications in the <a href="https://etsetb.upc.edu">ETSETB-UPC</a>, in Barcelona.
+undergrad and a Master's in telecommunications in the <a href="https://www.upc.edu/en?set_language=en">UPC</a>, in Barcelona.
 </p>
 
 <p>
