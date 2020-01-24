@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Dídac Surís's Page"
 title_separator          : "-"
 name                     : "Dídac Surís Coll-Vinent"
-description              : "Computer vision researcher.<br/>Currently at Vector Institute."
+description              : "Phd Student at Columbia University"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "surisdi/surisdi.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "Dídac Surís Coll-Vinent"
   avatar           : "/assets/images/BIO-PHOTO.png" # path of avatar image, e.g. "/assets/images/BIO-PHOTO.png"
-  bio              : "Computer vision researcher.<br/>Currently at Vector Institute."
+  bio              : "PhD Student at Columbia University"
   location         : # "Somewhere"
   email            : "didac.suris@gmail.com"
   uri              :
