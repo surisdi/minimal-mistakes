@@ -16,9 +16,7 @@ header:
 </p>
 
 <p>
-I am interested in multimodal 
-machine learning, or how to use different sources of information &mdash;like vision, audio and text&mdash; to formulate and solve computer vision and 
-artificial intelligence problems. My interests also include self-supervised and active learning, and in general all
+I am interested in multimodal machine learning, video dynamics and self-supervised learning, and in general all
 the areas of artificial intelligence that involve using all the available information in an intelligent way.
 </p>
   <p>
@@ -33,11 +31,3 @@ undergrad and a Master's in telecommunications in the <a href="https://www.upc.e
   In my free time, I like to play the classical guitar. Maybe (probably not) some day I'll upload some recording of me playing.
 </p>
 
-<p>
-  This website is a very young personal project, in which I will try to explain how I see the computer vision
-  world, and that I will progressively fill with information about me, my projects and my interests.
-</p>
-
-<p>
-  It may or may not be up to date, but you can always contact me.
-</p>
