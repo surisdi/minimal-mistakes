@@ -1,11 +1,23 @@
 # main links
+#main:
+#  - title: "Curriculum"
+#    url: /cv/
+#  - title: "Blog"
+#    url: /blog/
+#    description: 'Some random notes'
+#  - title: "Publications"
+#    url: /publications/
+##  - title: "Leisure"
+##    url: /leisure/
 main:
-  - title: "Curriculum"
-    url: /cv/
-  - title: "Blog"
-    url: /blog/
-    description: 'Some random notes'
+  - title: "Bio"
+    url: /
   - title: "Publications"
     url: /publications/
+  - title: "Curriculum"
+    url: /cv/
+#  - title: "Blog"
+#    url: /blog/
+#    description: 'Some random notes'
 #  - title: "Leisure"
 #    url: /leisure/
